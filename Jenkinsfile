@@ -31,12 +31,12 @@ pipeline{
                 }
             }
         }
-        
+
         stage("Static Code Analysis : Sonar"){
             steps{
                 
                 script{     
-                    staticCodeAnalysis()
+                    staticCodeAnalysis(sonar)
                 }
             }
         }
