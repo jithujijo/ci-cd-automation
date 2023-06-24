@@ -41,6 +41,15 @@ pipeline{
                 }
             }
         }
+        stage("Quality Gate Check : Sonar"){
+            steps{
+                
+                script{
+                    def id= 'sonar'     
+                    qualityCheck(id)
+                }
+            }
+        }
     }
     
 }
