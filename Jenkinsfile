@@ -1,3 +1,4 @@
+@Library('jenkinslibrary') _
 pipeline{
     agent any
 
@@ -7,7 +8,10 @@ pipeline{
             steps{
                 
                 script{
-                    git branch: 'main', url: 'https://github.com/jithujijo/ci-cd-automation.git'
+                    gitCheckout(){
+                        branch: "*/main"
+                        url: "https://github.com/jithujijo/ci-cd-automation.git"
+                    }
                 }
             }
         }
