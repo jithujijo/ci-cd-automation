@@ -9,7 +9,7 @@ pipeline{
                 
                 script{     
                     gitCheckout(
-                        branch: "main"
+                        branch: "main",
                         url: "https://github.com/jithujijo/ci-cd-automation.git"
                     )
                 }
