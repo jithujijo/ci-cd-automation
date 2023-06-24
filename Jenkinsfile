@@ -7,11 +7,11 @@ pipeline{
         stage("Git Checkout"){
             steps{
                 
-                script{
-                    gitCheckout(){
-                        branch: "*/main"
+                script{     
+                    gitCheckout(
+                        branch: "main"
                         url: "https://github.com/jithujijo/ci-cd-automation.git"
-                    }
+                    )
                 }
             }
         }
