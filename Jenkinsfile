@@ -35,8 +35,9 @@ pipeline{
         stage("Static Code Analysis : Sonar"){
             steps{
                 
-                script{     
-                    staticCodeAnalysis(sonar)
+                script{
+                    def id= 'sonar'     
+                    staticCodeAnalysis(id)
                 }
             }
         }
