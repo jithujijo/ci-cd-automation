@@ -4,6 +4,7 @@ pipeline{
 
     environment{
         buildnumber = "${env.BUILD_NUMBER}"
+        id= "sonar" 
     }
 
     parameters{
@@ -44,8 +45,7 @@ pipeline{
         stage("Static Code Analysis : Sonar"){
             steps{
                 
-                script{
-                    def id= 'sonar'     
+                script{    
                     staticCodeAnalysis(id)
                 }
             }
@@ -54,8 +54,7 @@ pipeline{
         stage("Quality Gate Check : Sonar"){
             steps{
                 
-                script{
-                    def id= 'sonar'     
+                script{    
                     qualityCheck(id)
                 }
             }
@@ -84,6 +83,15 @@ pipeline{
                 
                 script{     
                     dockerTag(buildnumber)
+                }
+            }
+        }
+
+        stage("Docker push : Docker"){
+            steps{
+                
+                script{     
+                    dockerPush(buildnumber)
                 }
             }
         }
