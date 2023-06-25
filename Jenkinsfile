@@ -2,6 +2,11 @@
 pipeline{
     agent any
 
+    parameters{
+
+        string(name: 'branch', description: "choose the branch", defaultvalue: 'main')
+    }
+
     stages{
 
         stage("Git Checkout"){
@@ -9,7 +14,7 @@ pipeline{
                 
                 script{     
                     gitCheckout(
-                        branch: "main",
+                        branch: ${params.branch},
                         url: "https://github.com/jithujijo/ci-cd-automation.git"
                     )
                 }
