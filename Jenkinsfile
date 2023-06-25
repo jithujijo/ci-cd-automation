@@ -78,6 +78,15 @@ pipeline{
                 }
             }
         }
+
+        stage("Docker Tag : Docker"){
+            steps{
+                
+                script{     
+                    dockerTag(buildnumber)
+                }
+            }
+        }
     }
     
 }
