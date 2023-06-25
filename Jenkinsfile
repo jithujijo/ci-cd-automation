@@ -56,7 +56,7 @@ pipeline{
             steps{
                 
                 script{     
-                    mavenBiuld()
+                    mavenBuild()
                 }
             }
         }
