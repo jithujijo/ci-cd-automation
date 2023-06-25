@@ -4,7 +4,7 @@ pipeline{
 
     parameters{
 
-        string(name: 'branch', description: "choose the branch", defaultvalue: 'main')
+        string(name: 'branch', description: "choose the branch", defaultValue: 'main')
     }
 
     stages{
