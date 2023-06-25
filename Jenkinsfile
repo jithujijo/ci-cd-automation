@@ -14,7 +14,7 @@ pipeline{
                 
                 script{     
                     gitCheckout(
-                        branch: ${params.branch},
+                        branch: "${params.branch}",
                         url: "https://github.com/jithujijo/ci-cd-automation.git"
                     )
                 }
