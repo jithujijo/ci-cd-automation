@@ -88,12 +88,15 @@ pipeline{
         }
 
         stage("Docker push : Docker"){
-            
+
             steps{
-                
-                script{     
-                    dockerPush(buildnumber)
+                withDockerRegistry(credentialsId: 'gcr:viu-browser-qa', url: 'us.gcr.io/viu-browser-qa/flowservice-test') {
+                    script{     
+                     dockerPush(buildnumber)
+                    }
+    
                 }
+                
             }
         }
     }
