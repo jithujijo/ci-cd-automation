@@ -2,6 +2,10 @@
 pipeline{
     agent any
 
+    environment{
+        buildnumber = "${env.BUILD_NUMBER}"
+    }
+
     parameters{
 
         string(name: 'branch', description: "choose the branch", defaultValue: 'main')
@@ -70,7 +74,7 @@ pipeline{
             steps{
                 
                 script{     
-                    dockerBuild()
+                    dockerBuild(buildnumber)
                 }
             }
         }
