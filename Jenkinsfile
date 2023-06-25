@@ -65,6 +65,15 @@ pipeline{
                 }
             }
         }
+
+        stage("Docker Build : Docker"){
+            steps{
+                
+                script{     
+                    dockerBuild()
+                }
+            }
+        }
     }
     
 }
