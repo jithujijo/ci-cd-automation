@@ -5,6 +5,8 @@ pipeline{
     environment{
         buildnumber = "${env.BUILD_NUMBER}"
         id= "sonar" 
+        dockercredentialsId = "gcr:viu-browser-qa"
+        dockerurl = "https://us.gcr.io"
     }
 
     parameters{
@@ -90,7 +92,7 @@ pipeline{
         stage("Docker push : Docker"){
 
             steps{
-                withDockerRegistry(credentialsId: "gcr:viu-browser-qa", url: "https://us.gcr.io") {
+                withDockerRegistry(credentialsId: "${dockercredentialsId}", url: "${dockerurl}") {
                     script{     
                      dockerPush(buildnumber)
                     }
